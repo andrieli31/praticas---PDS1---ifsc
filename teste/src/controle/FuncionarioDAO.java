@@ -8,6 +8,7 @@ public class FuncionarioDAO {
 	
 
 	private static ArrayList<Funcionario> listaFuncionarios;
+	private static FuncionarioDAO instancia;
 	
 	public FuncionarioDAO (){
 	listaFuncionarios = new ArrayList<>();	
@@ -21,6 +22,14 @@ public class FuncionarioDAO {
 
 	public ArrayList<Funcionario> listar() {
 		return listaFuncionarios;
+	}
+
+	public static FuncionarioDAO getInstance() {
+		if (instancia ==null) {
+			instancia = new FuncionarioDAO();
+			listaFuncionarios = new ArrayList<>();
+		}
+		return instancia;
 	}
 
 }
