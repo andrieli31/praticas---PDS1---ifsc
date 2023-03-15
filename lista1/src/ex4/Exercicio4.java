@@ -1,20 +1,25 @@
 package ex4;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Exercicio4 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textFieldN2;
+	private JTextField textFieldN1;
+	private JLabel num2;
+	private JButton divisao;
+	private JButton multiplicacao;
 
 	/**
 	 * Launch the application.
@@ -43,45 +48,88 @@ public class Exercicio4 extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lbln1 = new JLabel("Informe o primeiro número: ");
-		lbln1.setBounds(25, 11, 150, 14);
-		contentPane.add(lbln1);
-		
-		JLabel lbln2 = new JLabel("Informe o segundo número: ");
-		lbln2.setBounds(25, 36, 150, 15);
-		contentPane.add(lbln2);
-		
-		textField = new JTextField();
-		textField.setBounds(165, 8, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(165, 36, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
+
+		textFieldN1 = new JTextField();
+		textFieldN1.setBounds(251, 11, 86, 20);
+		contentPane.add(textFieldN1);
+		textFieldN1.setColumns(10);
+
+		textFieldN2 = new JTextField();
+		textFieldN2.setBounds(251, 57, 86, 20);
+
+		contentPane.add(textFieldN2);
+		System.out.println(textFieldN2);
+		textFieldN2.setColumns(10);
+
+		JLabel num1 = new JLabel("Informe o primeiro número: ");
+		num1.setBounds(35, 14, 141, 14);
+		contentPane.add(num1);
+
+		num2 = new JLabel("Informe o segundo número: ");
+		num2.setBounds(33, 60, 161, 14);
+		contentPane.add(num2);
+
 		JButton soma = new JButton("Soma: ");
-		soma.setBounds(25, 62, 107, 23);
+		soma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Double n1 = Double.parseDouble(textFieldN1.getText());
+				Double n2 = Double.parseDouble(textFieldN2.getText());
+
+				Double soma = (n1 + n2);
+
+				JOptionPane.showMessageDialog(null, "Cálculo: " + soma);
+
+			}
+		});
+		soma.setBounds(48, 133, 89, 23);
 		contentPane.add(soma);
-		
-		
-		
-		JButton subtracao = new JButton("Subtração: ");
-		subtracao.setBounds(25, 96, 107, 23);
-		contentPane.add(subtracao);
-		
-		JButton mult = new JButton("Multiplicação: ");
-		mult.setBounds(25, 130, 107, 23);
-		contentPane.add(mult);
-		
-		JButton div = new JButton("Divisão: ");
-		div.setBounds(25, 164, 107, 23);
-		contentPane.add(div);
-		
-		
-		
-		
+
+		JButton sub = new JButton("Subtração: ");
+		sub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.parseDouble(textFieldN1.getText());
+				Double n2 = Double.parseDouble(textFieldN2.getText());
+
+				Double subtracao = (n1 - n2);
+
+				JOptionPane.showMessageDialog(null, "Cálculo: " + subtracao);
+
+			}
+
+		});
+
+		sub.setBounds(48, 209, 89, 23);
+		contentPane.add(sub);
+
+		divisao = new JButton("Divisão: ");
+		divisao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.parseDouble(textFieldN1.getText());
+				Double n2 = Double.parseDouble(textFieldN2.getText());
+
+				Double div = (n1 / n2);
+
+				JOptionPane.showMessageDialog(null, "Cálculo: " + div);
+
+			}
+		});
+		divisao.setBounds(251, 133, 126, 23);
+		contentPane.add(divisao);
+
+		multiplicacao = new JButton("Multiplicação: ");
+		multiplicacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.parseDouble(textFieldN1.getText());
+				Double n2 = Double.parseDouble(textFieldN2.getText());
+
+				Double mult = (n1 * n2);
+
+				JOptionPane.showMessageDialog(null, "Cálculo : " + multiplicacao);
+			
+			}
+		});
+		multiplicacao.setBounds(251, 209, 126, 23);
+		contentPane.add(multiplicacao);
 	}
 }
