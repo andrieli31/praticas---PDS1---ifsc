@@ -1,6 +1,8 @@
 package ex4;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,17 +11,16 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
-public class Exercicio4 extends JFrame {
+public class Exe4 extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textFieldN2;
-	private JTextField textFieldN1;
-	private JLabel num2;
-	private JButton divisao;
-	private JButton multiplicacao;
+	private JPanel Painel;
+	private JTextField textNum1;
+	private JTextField textNum2;
+	private Double n1;
+	private Double n2;
 
 	/**
 	 * Launch the application.
@@ -28,7 +29,7 @@ public class Exercicio4 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Exercicio4 frame = new Exercicio4();
+					Exe4 frame = new Exe4();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,96 +41,118 @@ public class Exercicio4 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Exercicio4() {
+	public Exe4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Painel = new JPanel();
+		Painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setContentPane(Painel);
+		Painel.setLayout(null);
 
-		textFieldN1 = new JTextField();
-		textFieldN1.setBounds(251, 11, 86, 20);
-		contentPane.add(textFieldN1);
-		textFieldN1.setColumns(10);
+		textNum1 = new JTextField();
+		textNum1.setBounds(214, 11, 86, 20);
+		Painel.add(textNum1);
+		textNum1.setColumns(10);
 
-		textFieldN2 = new JTextField();
-		textFieldN2.setBounds(251, 57, 86, 20);
+		textNum2 = new JTextField();
+		textNum2.setBounds(214, 56, 86, 20);
+		Painel.add(textNum2);
+		textNum2.setColumns(10);
 
-		contentPane.add(textFieldN2);
-		System.out.println(textFieldN2);
-		textFieldN2.setColumns(10);
+		JLabel lblNewCampo1 = new JLabel("Informe o primeiro número: ");
+		lblNewCampo1.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewCampo1.setBounds(25, 14, 179, 14);
+		Painel.add(lblNewCampo1);
 
-		JLabel num1 = new JLabel("Informe o primeiro número: ");
-		num1.setBounds(35, 14, 141, 14);
-		contentPane.add(num1);
+		JLabel lblNewCampo2 = new JLabel("Informe o segundo número: ");
+		lblNewCampo2.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewCampo2.setBounds(25, 59, 179, 14);
+		Painel.add(lblNewCampo2);
 
-		num2 = new JLabel("Informe o segundo número: ");
-		num2.setBounds(33, 60, 161, 14);
-		contentPane.add(num2);
+		JButton btnSoma = new JButton("Soma: ");
+		btnSoma.setBackground(Color.WHITE);
+		btnSoma.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnSoma.setBounds(25, 110, 111, 23);
+		Painel.add(btnSoma);
 
-		JButton soma = new JButton("Soma: ");
-		soma.addActionListener(new ActionListener() {
+		btnSoma.addActionListener(new ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.parseDouble(textNum1.getText());
+				Double n2 = Double.parseDouble(textNum2.getText());
 
-				Double n1 = Double.parseDouble(textFieldN1.getText());
-				Double n2 = Double.parseDouble(textFieldN2.getText());
+				Double som = n1 + n2;
 
-				Double soma = (n1 + n2);
-
-				JOptionPane.showMessageDialog(null, "Cálculo: " + soma);
-
-			}
-		});
-		soma.setBounds(48, 133, 89, 23);
-		contentPane.add(soma);
-
-		JButton sub = new JButton("Subtração: ");
-		sub.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Double n1 = Double.parseDouble(textFieldN1.getText());
-				Double n2 = Double.parseDouble(textFieldN2.getText());
-
-				Double subtracao = (n1 - n2);
-
-				JOptionPane.showMessageDialog(null, "Cálculo: " + subtracao);
+				JOptionPane.showMessageDialog(null, "Soma dos valores: " + som);
 
 			}
 
 		});
 
-		sub.setBounds(48, 209, 89, 23);
-		contentPane.add(sub);
+		JButton btnSub = new JButton("Subtração: ");
+		btnSub.setBackground(Color.WHITE);
+		btnSub.setForeground(new Color(0, 0, 0));
+		btnSub.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnSub.setBounds(25, 159, 111, 23);
+		Painel.add(btnSub);
 
-		divisao = new JButton("Divisão: ");
-		divisao.addActionListener(new ActionListener() {
+		btnSub.addActionListener(new ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				Double n1 = Double.parseDouble(textFieldN1.getText());
-				Double n2 = Double.parseDouble(textFieldN2.getText());
 
-				Double div = (n1 / n2);
-
-				JOptionPane.showMessageDialog(null, "Cálculo: " + div);
-
-			}
-		});
-		divisao.setBounds(251, 133, 126, 23);
-		contentPane.add(divisao);
-
-		multiplicacao = new JButton("Multiplicação: ");
-		multiplicacao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Double n1 = Double.parseDouble(textFieldN1.getText());
-				Double n2 = Double.parseDouble(textFieldN2.getText());
-
-				Double mult = (n1 * n2);
-
-				JOptionPane.showMessageDialog(null, "Cálculo : " + multiplicacao);
 			
+				Double numero1 = Double.parseDouble(textNum1.getText());
+				Double numero2 = Double.parseDouble(textNum2.getText());
+
+				Double subtracao = (numero1 - numero2);
+
+				JOptionPane.showMessageDialog(null, "Valor: " + subtracao);
+
 			}
+
 		});
-		multiplicacao.setBounds(251, 209, 126, 23);
-		contentPane.add(multiplicacao);
+		JButton btnMult = new JButton("Muliplicação: ");
+		btnMult.setBackground(Color.WHITE);
+		btnMult.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnMult.setBounds(211, 110, 111, 23);
+		Painel.add(btnMult);
+
+		btnMult.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.parseDouble(textNum1.getText());
+				Double n2 = Double.parseDouble(textNum2.getText());
+
+				Double mult = n1 * n2;
+
+				JOptionPane.showMessageDialog(null, "Multiplicação dos valores: " + mult);
+			}
+
+		});
+
+		JButton btnDiv = new JButton("Divisão: ");
+		btnDiv.setBackground(Color.WHITE);
+		btnDiv.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnDiv.setBounds(214, 159, 108, 23);
+		Painel.add(btnDiv);
+
+		btnMult.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Double n1 = Double.parseDouble(textNum1.getText());
+				Double n2 = Double.parseDouble(textNum2.getText());
+
+				Double div = n1 / n2;
+
+				JOptionPane.showMessageDialog(null, "Divisão dos valores: " + div);
+			}
+
+		});
+
 	}
 }
