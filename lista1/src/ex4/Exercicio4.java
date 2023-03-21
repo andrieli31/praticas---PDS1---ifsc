@@ -109,7 +109,7 @@ public class Exe4 extends JFrame {
 
 				Double subtracao = (numero1 - numero2);
 
-				JOptionPane.showMessageDialog(null, "Valor: " + subtracao);
+				JOptionPane.showMessageDialog(null, "Subtração dos valores: " + subtracao);
 
 			}
 
