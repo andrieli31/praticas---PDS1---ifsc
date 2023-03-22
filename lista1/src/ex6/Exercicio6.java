@@ -21,10 +21,10 @@ import javax.swing.SwingConstants;
 public class Exercicio6 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldNome;
-	private JTextField textFieldN1;
-	private JTextField textFieldN2;
-	private JTextField textFieldN3;
+	private JTextField textNome;
+	private JTextField textN1;
+	private JTextField textN2;
+	private JTextField textN3;
 
 	/**
 	 * Launch the application.
@@ -49,83 +49,73 @@ public class Exercicio6 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(64, 128, 128));
+		contentPane.setBackground(new Color(217, 217, 225));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNome = new JLabel("Nome do aluno (a): ");
+		textNome = new JTextField();
+		textNome.setBounds(281, 26, 86, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
+
+		textN1 = new JTextField();
+		textN1.setBounds(281, 59, 86, 20);
+		contentPane.add(textN1);
+		textN1.setColumns(10);
+
+		textN2 = new JTextField();
+		textN2.setBounds(281, 90, 86, 20);
+		contentPane.add(textN2);
+		textN2.setColumns(10);
+
+		textN3 = new JTextField();
+		textN3.setBounds(281, 125, 86, 20);
+		contentPane.add(textN3);
+		textN3.setColumns(10);
+
+		JLabel lblNome = new JLabel("Informe o nome do aluno:");
 		lblNome.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNome.setBounds(28, 41, 134, 39);
+		lblNome.setBounds(10, 32, 291, 14);
 		contentPane.add(lblNome);
 
-		JLabel lblCalculaMedia = new JLabel("Calculadora de média");
-		lblCalculaMedia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCalculaMedia.setBounds(72, 12, 240, 19);
-		lblCalculaMedia.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		contentPane.add(lblCalculaMedia);
+		JLabel lblN1 = new JLabel("Informe primeira nota do aluno:");
+		lblN1.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblN1.setBounds(10, 65, 291, 14);
+		contentPane.add(lblN1);
 
-		JLabel lblNota1 = new JLabel("Informe a primeiro nota: ");
-		lblNota1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNota1.setBounds(28, 91, 134, 14);
-		contentPane.add(lblNota1);
+		JLabel lblN2 = new JLabel("Informe segunda nota do aluno:");
+		lblN2.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblN2.setBounds(10, 96, 291, 14);
+		contentPane.add(lblN2);
 
-		JLabel lblNota2 = new JLabel("Informe a segunda nota: ");
-		lblNota2.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNota2.setBounds(28, 130, 134, 14);
-		contentPane.add(lblNota2);
+		JLabel lblN3 = new JLabel("Informe terceira nota do aluno:");
+		lblN3.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblN3.setBounds(10, 131, 291, 14);
+		contentPane.add(lblN3);
 
-		JLabel lblNota3 = new JLabel("Informe a terceira nota: ");
-		lblNota3.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNota3.setBounds(28, 169, 134, 14);
-		contentPane.add(lblNota3);
+		JButton btnMedia = new JButton("CALCULAR");
+		btnMedia.setBackground(Color.WHITE);
+		btnMedia.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnMedia.setBounds(141, 185, 142, 23);
+		contentPane.add(btnMedia);
 
-		textFieldNome = new JTextField();
-		textFieldNome.setBounds(172, 47, 86, 20);
-		contentPane.add(textFieldNome);
-		textFieldNome.setColumns(10);
+		btnMedia.addActionListener(new ActionListener() {
 
-		textFieldN1 = new JTextField();
-		textFieldN1.setBounds(172, 85, 86, 20);
-		contentPane.add(textFieldN1);
-		textFieldN1.setColumns(10);
-
-		textFieldN2 = new JTextField();
-		textFieldN2.setBounds(172, 124, 86, 20);
-		contentPane.add(textFieldN2);
-		textFieldN2.setColumns(10);
-
-		textFieldN3 = new JTextField();
-		textFieldN3.setBounds(172, 163, 86, 20);
-		contentPane.add(textFieldN3);
-		textFieldN3.setColumns(10);
-
-		JButton btnCalc = new JButton("FAZER CÁLCULO");
-		btnCalc.setFont(new Font("Times New Roman", Font.BOLD, 10));
-		btnCalc.setBounds(279, 93, 147, 36);
-
-		btnCalc.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				Double num1 = Double.parseDouble(textFieldN1.getText());
-				Double num2 = Double.parseDouble(textFieldN2.getText());
-				Double num3 = Double.parseDouble(textFieldN3.getText());
-				String nome = textFieldNome.getText();
+				Double n1 = Double.parseDouble(textN1.getText());
+				Double n2 = Double.parseDouble(textN2.getText());
+				Double n3 = Double.parseDouble(textN3.getText());
+				String nome = textNome.getText();
+				
+				Double media = (n1+n2+n3)/3;
 
-
-				JOptionPane.showMessageDialog(null, "NOME ESTUDANTE: " + nome);
-				 calculaMedia(num1, num2, num3);
-
+				JOptionPane.showMessageDialog(null, "Aluno: "+ nome);
+				JOptionPane.showMessageDialog(null, "Média final do aluno: "+media);
 			}
 
 		});
-
-		contentPane.add(btnCalc);
-	}
-
-	public static void calculaMedia(Double num1, Double num2, Double num3) {
-		Double media = (num1 + num2 + num3) / 3;
-
-		JOptionPane.showMessageDialog(null, "Média final: " + media);
 	}
 }

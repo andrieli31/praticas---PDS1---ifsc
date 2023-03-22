@@ -13,15 +13,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.Font;
 
-public class Exe5 extends JFrame {
+public class Exercicio5 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textL1;
 	private JTextField textL2;
 	private JTextField textL3;
 	private JButton btnBotao;
-	private int num1;
-	private int num2;
 
 	/**
 	 * Launch the application.
@@ -30,7 +28,7 @@ public class Exe5 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Exe5 frame = new Exe5();
+					Exercicio5 frame = new Exercicio5();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +40,7 @@ public class Exe5 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Exe5() {
+	public Exercicio5() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -93,17 +91,19 @@ public class Exe5 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int num1 = Integer.parseInt(textL1.getText());
-				int num2 = Integer.parseInt(textL2.getText());
-				int num3 = Integer.parseInt(textL3.getText());
+				Double num1 = Double.parseDouble(textL1.getText());
+				Double num2 = Double.parseDouble(textL2.getText());
+				Double num3 = Double.parseDouble(textL3.getText());
 				
 				
-				if(num1 == num2 && num1 == num3 && num3 == num2) {
-					JOptionPane.showMessageDialog(null, "Triângulo equilátero");
-				} if (num1 != num2 && num1 != num3 && num2 != num3) {
-					JOptionPane.showMessageDialog(null, "Triângulo Escaleno");
-				}else {
-					JOptionPane.showMessageDialog(null, "Triângulo Isósceles");
+				if(Double.compare(num1, num2)== 0 && Double.compare(num1, num3) == 0
+						&& Double.compare(num2, num3)==0) {
+					JOptionPane.showMessageDialog(null, "Triângulo equilátero!");
+				} else if (Double.compare(num1,num2) == 0 || Double.compare(num1, num3) == 0
+						|| Double.compare(num2, num3)==0) {
+					JOptionPane.showMessageDialog(null, "Triângulo isóceles!");
+				} else {
+					JOptionPane.showMessageDialog(null, "Triângulo escaleno");
 				}
 				
 				

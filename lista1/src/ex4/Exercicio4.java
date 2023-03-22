@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
 
-public class Exe4 extends JFrame {
+public class Exercicio4 extends JFrame {
 
 	private JPanel Painel;
 	private JTextField textNum1;
@@ -29,7 +29,7 @@ public class Exe4 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Exe4 frame = new Exe4();
+					Exercicio4 frame = new Exercicio4();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class Exe4 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Exe4() {
+	public Exercicio4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		Painel = new JPanel();
