@@ -20,11 +20,11 @@ import javax.swing.JButton;
 public class Ex3 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNome;
-	private JTextField txtDataNa;
-	private JTextField txtMatricula;
+	private JTextField txtNomea;
+	private JTextField txtDataNaA;
+	private JTextField txtMatriculaA;
 	private JTextField txtSiape;
-	private JTextField txtCpf;
+	private JTextField txtCpfA;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -38,6 +38,9 @@ public class Ex3 extends JFrame {
 	private ArrayList <Aluno> alunos;
 	private ArrayList <Professor> professores;
 	private JButton btnCadastroProf;
+	private JTextField textNomeP;
+	private JTextField txtDataP;
+	private JTextField txtCpfP;
 
 	/**
 	 * Launch the application.
@@ -74,59 +77,59 @@ public class Ex3 extends JFrame {
 		
 		contentPane.setLayout(null);
 		
-		txtNome = new JTextField();
-		txtNome.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtNome.setBounds(124, 34, 86, 20);
-		contentPane.add(txtNome);
-		txtNome.setColumns(10);
+		txtNomea = new JTextField();
+		txtNomea.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtNomea.setBounds(148, 8, 86, 20);
+		contentPane.add(txtNomea);
+		txtNomea.setColumns(10);
 		
-		txtDataNa = new JTextField();
-		txtDataNa.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtDataNa.setBounds(124, 65, 86, 20);
-		contentPane.add(txtDataNa);
-		txtDataNa.setColumns(10);
+		txtDataNaA = new JTextField();
+		txtDataNaA.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtDataNaA.setBounds(148, 39, 86, 20);
+		contentPane.add(txtDataNaA);
+		txtDataNaA.setColumns(10);
 		
-		txtMatricula = new JTextField();
-		txtMatricula.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtMatricula.setBounds(323, 34, 86, 20);
-		contentPane.add(txtMatricula);
-		txtMatricula.setColumns(10);
+		txtMatriculaA = new JTextField();
+		txtMatriculaA.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtMatriculaA.setBounds(148, 100, 86, 20);
+		contentPane.add(txtMatriculaA);
+		txtMatriculaA.setColumns(10);
 		
 		txtSiape = new JTextField();
 		txtSiape.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtSiape.setBounds(323, 65, 86, 20);
+		txtSiape.setBounds(348, 100, 86, 20);
 		contentPane.add(txtSiape);
 		txtSiape.setColumns(10);
 		
-		txtCpf = new JTextField();
-		txtCpf.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtCpf.setBounds(124, 105, 86, 20);
-		contentPane.add(txtCpf);
-		txtCpf.setColumns(10);
+		txtCpfA = new JTextField();
+		txtCpfA.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtCpfA.setBounds(148, 69, 86, 20);
+		contentPane.add(txtCpfA);
+		txtCpfA.setColumns(10);
 		
-		lblNewLabel = new JLabel("Nome:");
+		lblNewLabel = new JLabel("Nome aluno:");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNewLabel.setBounds(10, 37, 46, 14);
+		lblNewLabel.setBounds(10, 11, 104, 14);
 		contentPane.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("Data de nascimento");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNewLabel_1.setBounds(10, 68, 116, 14);
+		lblNewLabel_1 = new JLabel("Data de nascimento do aluno:");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 10));
+		lblNewLabel_1.setBounds(10, 37, 150, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("CPF:");
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNewLabel_2.setBounds(10, 108, 46, 14);
+		lblNewLabel_2.setBounds(10, 68, 46, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("Matricula Aluno:");
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNewLabel_3.setBounds(215, 37, 114, 14);
+		lblNewLabel_3.setBounds(10, 103, 114, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("Siape Professor:");
 		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNewLabel_4.setBounds(215, 68, 86, 14);
+		lblNewLabel_4.setBounds(244, 103, 86, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		btnCadastraAluno = new JButton("Cadastrar Aluno: ");
@@ -136,10 +139,10 @@ public class Ex3 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String nomeA = txtNome.getText();
-				String dataA = txtDataNa.getText();
-				String cpfA = txtCpf.getText();
-				String matA = txtMatricula.getText();				
+				String nomeA = txtNomea.getText();
+				String dataA = txtDataNaA.getText();
+				String cpfA = txtCpfA.getText();
+				String matA = txtMatriculaA.getText();				
 				
 				if (!nomeA.isEmpty()) {
 					aluninhos.setNome(nomeA);
@@ -163,6 +166,7 @@ public class Ex3 extends JFrame {
 					Long matAl = Long.valueOf(matA);
 					aluninhos.setMatricula(matAl);	
 				}
+				alunos.add(aluninhos);
 					
 			}
 			
@@ -185,15 +189,51 @@ public class Ex3 extends JFrame {
 		btnCadastroProf.setBounds(37, 187, 153, 23);
 		
 		btnCadastroProf.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String nomeP = textNomeP.getText();
+				String dataP = txtDataP.getText();
+				String cpfP = txtCpfP.getText();
+				String siape = txtSiape.getText();
+				
+						
+						
 				
 			}
 			
 			
 		});
 		contentPane.add(btnCadastroProf);
+		
+		textNomeP = new JTextField();
+		textNomeP.setBounds(348, 8, 86, 20);
+		contentPane.add(textNomeP);
+		textNomeP.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Nome professor: ");
+		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewLabel_5.setBounds(244, 11, 104, 14);
+		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("DataNasc Prof:");
+		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewLabel_6.setBounds(244, 42, 86, 14);
+		contentPane.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("CPF prof:");
+		lblNewLabel_7.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewLabel_7.setBounds(244, 72, 86, 14);
+		contentPane.add(lblNewLabel_7);
+		
+		txtDataP = new JTextField();
+		txtDataP.setBounds(348, 39, 86, 20);
+		contentPane.add(txtDataP);
+		txtDataP.setColumns(10);
+		
+		txtCpfP = new JTextField();
+		txtCpfP.setBounds(348, 69, 86, 20);
+		contentPane.add(txtCpfP);
+		txtCpfP.setColumns(10);
 		
 		
 	}
