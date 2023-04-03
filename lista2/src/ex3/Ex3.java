@@ -7,7 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 
 public class Ex3 extends JFrame {
@@ -23,10 +30,14 @@ public class Ex3 extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
-	private JButton btnCadastrar;
+	private JButton btnCadastraAluno;
 	private JButton btnAluno;
 	private JButton btnProf;
-	public ArrayList  <>
+	private Aluno aluninhos;
+	private Professor profs; 
+	private ArrayList <Aluno> alunos;
+	private ArrayList <Professor> professores;
+	private JButton btnCadastroProf;
 
 	/**
 	 * Launch the application.
@@ -54,6 +65,13 @@ public class Ex3 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		alunos = new ArrayList <>();
+		professores = new ArrayList <>();
+		profs = new Professor();
+		aluninhos = new Aluno();
+		
+		
+		
 		contentPane.setLayout(null);
 		
 		txtNome = new JTextField();
@@ -111,12 +129,48 @@ public class Ex3 extends JFrame {
 		lblNewLabel_4.setBounds(215, 68, 86, 14);
 		contentPane.add(lblNewLabel_4);
 		
-		btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnCadastrar.setBounds(37, 153, 89, 23);
-		contentPane.add(btnCadastrar);
+		btnCadastraAluno = new JButton("Cadastrar Aluno: ");
+		btnCadastraAluno.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnCadastraAluno.setBounds(37, 153, 153, 23);
+		btnCadastraAluno.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nomeA = txtNome.getText();
+				String dataA = txtDataNa.getText();
+				String cpfA = txtCpf.getText();
+				String matA = txtMatricula.getText();				
+				
+				if (!nomeA.isEmpty()) {
+					aluninhos.setNome(nomeA);
+				}else {
+					JOptionPane.showMessageDialog(null, "Informe o nome do aluno: ");
+				}
+				if (!dataA.isEmpty()) {
+					Date nasci = new Date(dataA);
+					
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Informe a data de nascimento: ");
+				}
+				if (!cpfA.isEmpty()) {
+					Long cpfAL = Long.valueOf(cpfA);
+					aluninhos.setCpf(cpfAL);
+				}else {
+					JOptionPane.showMessageDialog(null,"Informe o cpf: ");
+				}
+				if (!matA.isEmpty()) {
+					Long matAl = Long.valueOf(matA);
+					aluninhos.setMatricula(matAl);	
+				}
+					
+			}
+			
+		});
 		
-		btnAluno = new JButton("Alunos:");
+		contentPane.add(btnCadastraAluno);
+		
+		btnAluno = new JButton("Alunos");
 		btnAluno.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnAluno.setBounds(240, 153, 89, 23);
 		contentPane.add(btnAluno);
@@ -126,7 +180,21 @@ public class Ex3 extends JFrame {
 		btnProf.setBounds(240, 187, 89, 23);
 		contentPane.add(btnProf);
 		
+		btnCadastroProf = new JButton("Cadastrar professor:");
+		btnCadastroProf.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		btnCadastroProf.setBounds(37, 187, 153, 23);
+		
+		btnCadastroProf.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+			
+		});
+		contentPane.add(btnCadastroProf);
+		
 		
 	}
-
 }

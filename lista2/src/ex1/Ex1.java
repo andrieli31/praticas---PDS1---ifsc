@@ -62,21 +62,22 @@ public class Ex1 extends JFrame {
 		txtNum.setColumns(10);
 
 		txtResult = new JTextField();
+		txtResult.setEnabled(false);
 		txtResult.setEditable(false);
 		txtResult.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		txtResult.setBounds(256, 69, 86, 20);
 		contentPane.add(txtResult);
 		txtResult.setColumns(10);
 
-		JLabel lbl1 = new JLabel("Informe um Número:");
-		lbl1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lbl1.setBounds(35, 27, 132, 14);
-		contentPane.add(lbl1);
+		JLabel lblNum = new JLabel("Informe um Número:");
+		lblNum.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNum.setBounds(35, 27, 132, 14);
+		contentPane.add(lblNum);
 
-		JLabel lbl2 = new JLabel("Resultado ");
-		lbl2.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lbl2.setBounds(35, 69, 103, 14);
-		contentPane.add(lbl2);
+		JLabel lblResult = new JLabel("Resultado ");
+		lblResult.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblResult.setBounds(35, 69, 103, 14);
+		contentPane.add(lblResult);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 12));

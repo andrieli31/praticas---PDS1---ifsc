@@ -1,6 +1,6 @@
 package ex3;
 
-public abstract class Aluno extends Pessoa {
+public class Aluno extends Pessoa {
 	private Long matricula;
 
 	public Long getMatricula() {
